@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="brief description" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add your V-Lab Title here</title>
+  <link rel="icon" href="images/vlab-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/harmonic16-dark.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="practiceScript.js"></script>
+  <link rel="stylesheet" href="practiceStyles.css" />
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <div class="logo">
+        <a href="https://www.vlab.andcollege.du.ac.in" rel="noopener" target="_blank">
+          <img class="logo-img" src="images/logo.png" alt="VLab" />
+        </a>
+      </div>
+      <h1 class="vlab">V-Lab@ANDC</h1>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav class="nav-menu" id="small-screen">
+      <div class="close-btn" onclick="toggleMenu()">✖</div>
+      <a href="https://www.vlab.andcollege.du.ac.in">Home</a>
+      <a href="https://www.vlab.andcollege.du.ac.in#labs_section">Labs</a>
+      <a href="https://www.vlab.andcollege.du.ac.in#team">Team</a>
+      <a href="https://www.andcollege.du.ac.in">College Website</a>
+    </nav>
+  </header>
+
+  <div class="yourvlabtitle">
+    <h1>your vlab title</h1>
+  </div>
+
+  <div class="pageview">
+    <nav class="navigation">
+      <button class="link" onclick="switchContent('aim')">
+        <img class="icon" src="images/Aim_img.png" alt="Aim" />
+        <span>Aim</span>
+      </button>
+
+      <button class="link" onclick="switchContent('theory')">
+        <img class="icon" src="images/theory_img.png" alt="THEORY" />
+        <span>Theory & Appli.</span>
+      </button>
+
+      <button class="link" onclick="switchContent('procedure')">
+        <img class="icon" src="images/procedure_img.png" alt="PROCEDURE" />
+        <span>Procedure</span>
+      </button>
+
+      <button class="link" onclick="switchContent('practice')">
+        <img class="icon" src="images/practice_img.png" alt="PRACTICE" />
+        <span>Practice</span>
+      </button>
+
+      <button class="link" onclick="switchContent('code')">
+        <img class="icon" src="images/code_img.png" alt="CODES" />
+        <span>Codes</span>
+      </button>
+
+      <button class="link" onclick="switchContent('result')">
+        <img class="icon" src="images/result_img.png" alt="RESULT" />
+        <span>Result</span>
+      </button>
+
+      <button class="link" onclick="switchContent('quiz')">
+        <img class="icon" src="images/quiz_img.png" alt="QUIZ" />
+        <span>Quiz</span>
+      </button>
+
+      <button class="link" onclick="switchContent('references')">
+        <img class="icon" src="images/reference_img.png" alt="REFERENCE" />
+        <span>References</span>
+      </button>
+      <button class="link" onclick="switchContent('tnt')">
+        <img class="icon" src="images/tnt_img.png" alt="TEAM & TOOLS" />
+        <span>Team & Tools</span>
+      </button>
+    </nav>
+
+    <section class="main_practical">
+      <!-- Aim -->
+      <div class="container" id="aim">
+        <div class="title">Aim</div>
+        <div class="content">
+          <p> To show generation of a 2D matrix and assessing the learning.</p>
+        </div>
+      </div>
+
+      <!-- Theory & Applications -->
+      <div class="container" id="theory">
+        <div class="title">Theory & Applications</div>
+        <div class="content">
+          <p>
+            A matrix is a rectangular array of numbers, symbols or expressions arranged in rows and columns. It is
+            commonly used in mathematics, computer science, physics, and engineering and various other domains.
+
+
+            A 2D matrix (or a two-dimensional matrix) is a grid-like structure of numbers/elements arranged in rows and
+            columns. It is represented as a table or array where each element has a specific row and column index.
+
+            Let us look at the diagram below for reference:
+
+            <img src="/images/matrix.png" style="display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: 250px;
+    width:auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    background-color: #f9f9f9;">
+
+            <strong>Example of a 2D Matrix</strong>
+            A=[[1 2 3]
+            [ 4 5 6]
+            [ 7 8 9]]
+          <ul>
+            <li><strong>Rows:</strong>Horizontal lines → ( [1,2,3] is the first row)</li>
+            <li><strong> Columns:</strong>Vertical lines → ( [1,4,7] is the first column)</li>
+            <li><strong>Elements:</strong>Numbers in the matrix ( 5 is in row 2, column 2)</li>
+          </ul>
+
+
+
+          <strong>Types of 2D Matrices</strong>
+          <ol>
+            <li><strong>Square Matrix:</strong> Rows = Columns (3x3, 4x4)</li>
+            <li><strong>Rectangular Matrix:</strong> Rows ≠ Columns ( 3x5, 2x4)</li>
+            <li><strong>Identity Matrix:</strong> Diagonal elements are 1, others are 0</li>
+            <li><strong>Zero Matrix:</strong> All elements are 0</li>
+            <li><strong>parse Matrix:</strong> Majority of elements are zero</li>
+          </ol>
+
+          <strong>Applications of Matrix Generation</strong>
+          <ol>
+            <li><strong> Computer Graphics:</strong>Graphics are used in image processing and transformations.</li>
+            <li><strong>Scientific Computing:</strong>Essential for numerical simulations in physics, engineering, and
+              AI.</li>
+            <li><strong>Data Science & ML:</strong>Used in datasets representation, neural networks, and AI algorithms.
+            </li>
+            <li><strong>Cryptography:</strong>Matrices help in encoding and decoding data securely.</li>
+            <li><strong>Game Development:</strong>Collision detection and pathfinding algorithms use matrices.</li>
+            <li><strong> Network Theory:</strong>Graph representations in network analysis use adjacency matrices.</li>
+          </ol>
+          <strong>Objectives</strong>
+          <ul>
+            <li>Understand the concept of a 2D matrix </li>
+            <li>Understanding its applications.</li>
+            <li>Implement a 2D matrix generation algorithm using Python (with optional C/Java versions).</li>
+            <li>Visualize the matrix </li>
+            <li>Practice questions for the conceptual study of matrix</li>
+            <li> Develop an interactive virtual lab experience for users.</li>
+          </ul>
+          </p>
+
+
+
+        </div>
+      </div>
+
+      <!-- Procedure -->
+      <div class="container" id="procedure">
+        <div class="title">Procedure</div>
+        <div class="content">
+          <p><strong>Define the Function:</strong></p>
+          <ul style="list-style-type:disc">
+            <li>Name the function matrix(m, n, elements), where:</li>
+            <ul style="list-style-type:square">
+              <li><code>m</code> is the number of rows</li>
+              <li><code>n</code> is the number of columns</li>
+              <li><code>elements</code> is an array containing the values to fill the matrix</li>
+            </ul>
+            </li>
+          </ul>
+
+
+
+
+          <p><strong>Check for Sufficient Elements:</strong></p>
+          <ul style="list-style-type:disc">
+            <li>Compare the length of <code>elements</code> with <code>m × n</code></li>
+            <li>If <code>elements</code> has fewer than <code>m × n</code> values, print:
+              <code>"insufficient elements to populate the matrix"</code> and return <code>null</code>
+            </li>
+          </ul>
+
+          <p><strong>Initialize the Matrix:</strong></p>
+          <ul style="list-style-type:disc">
+            <li>Create an empty array <code>M</code> to store the final matrix</li>
+            <li>Declare a variable <code>index = 0</code> to track the position in <code>elements</code></li>
+          </ul>
+
+          <p><strong>Populate the Matrix Row-Wise:</strong></p>
+          <ul style="list-style-type:disc">
+            <li>Loop through <code>m</code> rows:
+              <ul style="list-style-type:square">
+                <li>Create an empty array <code>row</code></li>
+                <li>Loop through <code>n</code> columns:
+                  <ul style="list-style-type:circle">
+                    <li>Add <code>elements[index]</code> to <code>row</code></li>
+                    <li>Increment <code>index</code></li>
+                  </ul>
+                </li>
+                <li>Append the completed <code>row</code> to <code>M</code></li>
+              </ul>
+            </li>
+          </ul>
+          <p><strong>Return the Matrix:</strong></p>
+          <ul style="list-style-type:disc">
+            <li>After the loops complete, return <code>M</code>, which now holds the <code>m × n</code> matrix</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- Code -->
+      <div class="container" id="code">
+        <div class="title">Code</div>
+        <p>Example programs</p>
+        <div class="switch-container">
+          <input class="togswt" type="radio" id="cppRadio" name="codeSwitch" checked />
+          <label for="cppRadio">C++</label>
+
+          <input class="togswt" type="radio" id="pythonRadio" name="codeSwitch" />
+          <label for="pythonRadio">Python</label>
+        </div>
+
+        <div class="code-blocks">
+          <div id="cppCode" class="code-block active">
+            <div class="code-content">
+              <pre><code class="language-cpp">// C++ Code Example
+                #include <iostream>
+                #include <vector>
+                using namespace std;
+
+                vector<vector<int>> matrix(int m, int n, const vector<int>& elements) {
+                  if (elements.size() < m * n) {
+                    cout << "insufficient elements to populate the matrix!" << endl;
+                    return {}; 
+                  }
+
+                  vector<vector<int>> M;
+                  int index = 0;
+
+                  for (int i = 0; i < m; ++i) {
+                    vector<int> row;
+                    for (int j = 0; j < n; ++j) {
+                      row.push_back(elements[index]);
+                      index++;
+                    }
+                    M.push_back(row);
+                  }
+
+                  return M;
+                }
+
+              </code></pre>
+              <button class="copy-button">Copy</button>
+            </div>
+          </div>
+          <div id="pythonCode" class="code-block">
+            <div class="code-content">
+              <pre><code class="language-python"># Python Code Example
+                def matrix(m, n, elements):
+                  if len(elements) < m * n:
+                    print("insufficient elements to populate the matrix!")
+                    return None
+
+                  M = []
+                  index = 0
+
+                  for i in range(m):
+                    row = []
+                    for j in range(n):
+                      row.append(elements[index])
+                      index += 1
+                    M.append(row)
+
+                  return M
+
+              </code></pre>
+              <button class="copy-button">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice -->
+      <div class="container" id="practice">
+        <div class="title">Practice</div>
+        <div class="content">
+          <p>Enter number of rows: <input type="number" id="row" /></p>
+          <p>Enter number of columns: <input type="number" id="column" /></p>
+          <p>Enter elements (comma-separated): <input type="text" id="values" /></p>
+          <button type="button" onclick="display()">ENTER</button>
+          <button type="button" id="resetButton" class="hidden" onclick="resetMatrix()">RESET</button>
+          <div id="matrixContainer"></div>
+        </div>
+      </div>
+
+
+
+
+      <!-- Results -->
+      <div class="container" id="result">
+        <div class="title">Result</div>
+        <div class="content">
+          <p>This virtual lab provides hands-on experience with 2D matrix generation using various techniques. 
+            It enables users to explore different methods, implement code in multiple languages, and visualize the results for better comprehension.
+             Understanding 2D matrices is essential in fields such as machine learning, cryptography, and numerical computing.</p>
+        </div>
+      </div>
+
+      <!-- Quiz -->
+      <div class="container" id="quiz">
+  <div class="title">Quiz</div>
+  <p id="question" class="quiz-question"></p>
+  <div id="choices" class="choices"></div>
+
+  <div class="quiz-buttons">
+    <button id="next-btn" class="next-button">Next</button>
+    <button id="retake-btn" class="retake-button" style="display: none;">Retake Quiz</button>
+  </div>
+
+  <div id="quiz-report" class="quiz-report" style="display: none;"></div>
+</div>
+
+        <!-- Section to display quiz report -->
+
+      <!-- References -->
+      <div class="container" id="references">
+        <div class="title">References</div>
+        <div class="content">
+          <ul class="ref-list" style="list-style-type :disc" >
+            <li>
+              <strong>Python Matrix Basics</strong>
+              <ul style="list-style-type :circle">
+                <li >
+              <span> Python Lists -  W3Schools </span></li>
+            </li>
+              </ul>
+              
+            <li>
+               <strong>Matrix in Math & Applications</strong> 
+            <ul style="list-style-type :circle">
+               <li >
+              <span> Matrix Applications - Linear Algebra </span>
+            </li>
+            </ul>
+            </li>
+           
+           
+          </ul>
+        </div>
+      </div>
+
+      <!-- Team & Tools -->
+      <div class="container" id="tnt">
+        <div class="title">Team & Tools</div>
+        <div class="content">
+          <h3>Students</h3>
+          <ul class="ref-list">
+            <li>
+              <a href="profile url if you have" rel="noopener" target="_blank">
+                <span>
+                  <ol style="list-style-type:decimal">
+                    <li>Udita Puri : Bsc(H) Computer Science</li>
+                    <li>Latika Joshi : Bsc(H) Computer Science</li>
+                  </ol>
+                </span></a>
+            </li>
+          </ul>
+          <h3>Mentor</h3>
+          <ul class="ref-list" >
+            <li><span> Ms. Shiva Saini</span></li>
+          </ul>
+          <h3>Tools Used</h3>
+          <ul class="tools-list">
+            <li>
+              <span>Vanilla HTML, CSS, JS - for creating the web page</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    hljs.highlightAll();
+    function toggleMenu() {
+      const menu = document.querySelector(".nav-menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>
