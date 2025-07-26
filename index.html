@@ -248,21 +248,21 @@ This virtual setup ensures accessible, self-paced learning, especially for those
           <div id="cppCode" class="code-block active">
             <div class="code-content">
               <pre><code class="language-cpp">// C++ Code Example
-                #include <iostream>
-                #include <vector>
+                #include &lt;iostream&gt;
+                #include &lt;vector&gt;
                 using namespace std;
 
-                vector<vector<int>> matrix(int m, int n, const vector<int>& elements) {
+                vector&lt;vector&lt;int&gt;&gt; matrix(int m, int n, const vector&lt;int&gt;& elements) {
                   if (elements.size() < m * n) {
                     cout << "insufficient elements to populate the matrix!" << endl;
                     return {}; 
                   }
 
-                  vector<vector<int>> M;
+                  vector&lt;vector&lt;int&gt;&gt; M;
                   int index = 0;
 
                   for (int i = 0; i < m; ++i) {
-                    vector<int> row;
+                    vector&lt;int&gt; row;
                     for (int j = 0; j < n; ++j) {
                       row.push_back(elements[index]);
                       index++;
