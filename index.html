@@ -311,8 +311,10 @@ This virtual setup ensures accessible, self-paced learning, especially for those
           <p>Enter number of rows: <input type="number" id="row" /></p>
           <p>Enter number of columns: <input type="number" id="column" /></p>
           <p>Enter elements (comma-separated): <input type="text" id="values" /></p>
-          <button type="button" onclick="display()">ENTER</button>
-          <button type="button" id="resetButton" class="hidden" onclick="resetMatrix()">RESET</button>
+          <div class="button-practice">
+            <button type="button"  style="text-align: center" onclick="display()">ENTER</button>
+            <button type="button" id="resetButton" class="hidden" onclick="resetMatrix()">RESET</button>
+          </div>
           <div id="matrixContainer"></div>
         </div>
       </div>

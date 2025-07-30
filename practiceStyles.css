@@ -1,9 +1,10 @@
 #practice, .matrix-container {
-  width: 90%;
+  width: 95%;
   max-width: 600px;
-  text-align: center;
+  text-align:left;
   margin-bottom: 20px;
 }
+
 
 input[type="number"], input[type="text"] {
   padding: 6px;
@@ -22,6 +23,10 @@ button {
   color: white;
   cursor: pointer;
   font-weight: bold;
+}
+
+.button-practice{
+  text-align: center;
 }
 
 button:hover {
