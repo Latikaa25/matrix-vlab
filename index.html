@@ -282,22 +282,77 @@ This virtual setup ensures accessible, self-paced learning, especially for those
           <div id="pythonCode" class="code-block">
             <div class="code-content">
               <pre><code class="language-python"># Python Code Example
-                def matrix(m, n, elements):
-                  if len(elements) < m * n:
-                    print("insufficient elements to populate the matrix!")
-                    return None
+                import random
 
-                  M = []
-                  index = 0
+# Step 1: Create the matrix
+def create_matrix(m, n, use_random=True):
+    matrix = []
+    if use_random:
+        # Fill with random numbers from 1 to 50
+        for i in range(m):
+            row = []
+            for j in range(n):
+                row.append(random.randint(1, 50))
+            matrix.append(row)
+    else:
+        # Fill with user-provided values
+        print(f"Enter {m * n} elements (one by one):")
+        elements = []
+        for _ in range(m * n):
+            value = int(input())
+            elements.append(value)
+        
+        index = 0
+        for i in range(m):
+            row = []
+            for j in range(n):
+                row.append(elements[index])
+                index += 1
+            matrix.append(row)
+    return matrix
 
-                  for i in range(m):
-                    row = []
-                    for j in range(n):
-                      row.append(elements[index])
-                      index += 1
-                    M.append(row)
+# Step 2: Traverse the matrix by index
+def traverse_matrix(matrix, r, c):
+    if r < 0 or r >= len(matrix) or c < 0 or c >= len(matrix[0]):
+        print("Invalid index!")
+    else:
+        print(f"Value at index [{r}][{c}] is {matrix[r][c]}")
 
-                  return M
+# Step 3: Manipulate the matrix at a given index
+def manipulate_matrix(matrix, r, c, new_value):
+    if r < 0 or r >= len(matrix) or c < 0 or c >= len(matrix[0]):
+        print("Invalid index!")
+    else:
+        matrix[r][c] = new_value
+        print(f"Updated value at index [{r}][{c}] to {new_value}")
+
+# Example usage:
+m = int(input("Enter number of rows: "))
+n = int(input("Enter number of columns: "))
+choice = input("Do you want random values? (yes/no): ")
+
+use_random = choice.strip().lower() == "yes"
+mat = create_matrix(m, n, use_random)
+
+print("\nMatrix:")
+for row in mat:
+    print(row)
+
+# Traversal
+r = int(input("\nEnter row index to traverse: "))
+c = int(input("Enter column index to traverse: "))
+traverse_matrix(mat, r, c)
+
+# Manipulation
+r = int(input("\nEnter row index to manipulate: "))
+c = int(input("Enter column index to manipulate: "))
+new_value = int(input("Enter new value: "))
+manipulate_matrix(mat, r, c, new_value)
+
+print("\nUpdated Matrix:")
+for row in mat:
+    print(row)
+
 
               </code></pre>
               <button class="copy-button">Copy</button>
