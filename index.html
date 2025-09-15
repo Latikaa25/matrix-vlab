@@ -307,6 +307,10 @@ This virtual setup ensures accessible, self-paced learning, especially for those
       </div>
 
 <!-- Practice -->
+<!-- Practice -->
+
+
+    <!-- Practice -->
 <div class="container" id="practice">
 
   <!-- Step 0: Introduction -->
@@ -319,66 +323,241 @@ This virtual setup ensures accessible, self-paced learning, especially for those
     <button id="stepNextBtn">Next</button>
   </div>
 
-  <!-- Step 1: Matrix Creation (hidden initially) -->
+  <!-- Step 1: Matrix Creation -->
   <div id="creationStep" style="display:none;">
     <div class="title">Step 1: Creating Matrix</div>  
     <div class="content">
-      <p>Enter number of rows: <input type="number" id="row" /></p>
-      <p>Enter number of columns: <input type="number" id="column" /></p>
+      <p>Enter number of rows: <input type="number" id="row" min="1"/></p>
+      <p>Enter number of columns: <input type="number" id="column" min="1"/></p>
 
-      <!-- Choose input method -->
       <div class="switch-container">
-        <button type="button" id="manualBtn">Fill Manually</button>
-        <button type="button" id="randomBtn">Random Fill</button>
+        <button id="manualBtn">Fill Manually</button>
+        <button id="randomBtn">Random Fill</button>
       </div>
 
       <p id="elementsInput" style="display:none;">
         Enter elements (comma-separated): 
-        <input type="text" id="values">
+        <input type="text" id="values" placeholder="e.g. 1,2,3,4"/>
       </p>
 
       <div class="button-practice">
-        <button type="button" id="enterBtn" style="text-align: center" onclick="display()">ENTER</button>
-        <button type="button" id="resetButton" class="hidden" onclick="resetMatrix()">RESET</button>
+        <button id="enterBtn">ENTER</button>
+        <button id="resetButton" class="hidden">RESET</button>
       </div>
 
       <div id="matrixContainer"></div>
       <button id="goToTraversalBtn" class="hidden">Go to Traversal →</button>
-
     </div>
   </div>
 
-    <!-- Step 2: Matrix Traversal (hidden initially) -->
+  <!-- Step 2: Matrix Traversal -->
   <div id="traversalStep" style="display:none;">
     <div class="title">Step 2: Traversing Matrix</div>
     <div class="content">
-      <p>
-        Traversal means visiting each element of the matrix in a systematic way.
-        You can traverse <b>row-wise</b> (left to right, row by row) or
-        <b>column-wise</b> (top to bottom, column by column).
-      </p>
+      <p>Enter index to traverse (row and column start from 0):</p>
+      <input type="number" id="traverseRow" placeholder="Row index"/>
+      <input type="number" id="traverseCol" placeholder="Column index"/>
+      <button id="traverseBtn">Traverse</button>
 
-      <!-- Traversal mode selector -->
-      <div class="switch-container">
-        <button type="button" id="rowWiseBtn">Row-wise</button>
-        <button type="button" id="colWiseBtn">Column-wise</button>
-      </div>
-
-      <!-- Matrix grid will be reused here -->
       <div id="traversalMatrixContainer"></div>
+      <div id="traversalExplanation" class="explanation"></div>
 
-      <!-- Explanation + step button -->
-      <div id="traversalExplanation" class="explanation">
-        Select a traversal method to begin.
-      </div>
       <div class="button-practice">
-        <button type="button" id="traversalNextBtn" class="hidden">NEXT</button>
-        <button type="button" id="traversalResetBtn" class="hidden">RESET</button>
+        <button id="traversalNextBtn" class="hidden">Go to Manipulation →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Matrix Manipulation -->
+  <div id="manipulationStep" style="display:none;">
+    <div class="title">Step 3: Manipulating Matrix</div>
+    <div class="content">
+      <p>Enter index to update and new value:</p>
+      <input type="number" id="manipulateRow" placeholder="Row index"/>
+      <input type="number" id="manipulateCol" placeholder="Column index"/>
+      <input type="number" id="newValue" placeholder="New value"/>
+      <button id="manipulateBtn">Update</button>
+
+      <div id="manipulationMatrixContainer"></div>
+      <div id="manipulationExplanation" class="explanation"></div>
+
+      <div class="button-practice">
+        <button id="manipulationResetBtn">Reset</button>
       </div>
     </div>
   </div>
 
 </div>
+
+<script>
+  let matrix = [];
+  let rows = 0;
+  let cols = 0;
+
+  const stepNextBtn = document.getElementById("stepNextBtn");
+  const creationStep = document.getElementById("creationStep");
+  const matrixSteps = document.getElementById("matrixSteps");
+
+  const manualBtn = document.getElementById("manualBtn");
+  const randomBtn = document.getElementById("randomBtn");
+  const elementsInput = document.getElementById("elementsInput");
+  const values = document.getElementById("values");
+  const enterBtn = document.getElementById("enterBtn");
+  const resetButton = document.getElementById("resetButton");
+  const goToTraversalBtn = document.getElementById("goToTraversalBtn");
+  const matrixContainer = document.getElementById("matrixContainer");
+
+  const rowInput = document.getElementById("row");
+  const colInput = document.getElementById("column");
+
+  const traversalStep = document.getElementById("traversalStep");
+  const traversalMatrixContainer = document.getElementById("traversalMatrixContainer");
+  const traversalExplanation = document.getElementById("traversalExplanation");
+  const traversalNextBtn = document.getElementById("traversalNextBtn");
+  const traverseRow = document.getElementById("traverseRow");
+  const traverseCol = document.getElementById("traverseCol");
+  const traverseBtn = document.getElementById("traverseBtn");
+
+  const manipulationStep = document.getElementById("manipulationStep");
+  const manipulationMatrixContainer = document.getElementById("manipulationMatrixContainer");
+  const manipulationExplanation = document.getElementById("manipulationExplanation");
+  const manipulationResetBtn = document.getElementById("manipulationResetBtn");
+  const manipulateRow = document.getElementById("manipulateRow");
+  const manipulateCol = document.getElementById("manipulateCol");
+  const newValue = document.getElementById("newValue");
+  const manipulateBtn = document.getElementById("manipulateBtn");
+
+  stepNextBtn.addEventListener("click", () => {
+    matrixSteps.style.display = "none";
+    creationStep.style.display = "block";
+  });
+
+  manualBtn.addEventListener("click", () => {
+    elementsInput.style.display = "block";
+  });
+
+  randomBtn.addEventListener("click", () => {
+    elementsInput.style.display = "none";
+  });
+
+  enterBtn.addEventListener("click", () => {
+    rows = parseInt(rowInput.value);
+    cols = parseInt(colInput.value);
+
+    if (isNaN(rows) || isNaN(cols) || rows <= 0 || cols <= 0) {
+      alert("Please enter valid rows and columns.");
+      return;
+    }
+
+    matrix = [];
+    if (elementsInput.style.display === "block") {
+      let vals = values.value.split(",").map(v => parseInt(v.trim()));
+      if (vals.length !== rows * cols) {
+        alert(`Please enter exactly ${rows * cols} elements.`);
+        return;
+      }
+      let index = 0;
+      for (let i = 0; i < rows; i++) {
+        matrix[i] = [];
+        for (let j = 0; j < cols; j++) {
+          matrix[i][j] = vals[index++];
+        }
+      }
+    } else {
+      for (let i = 0; i < rows; i++) {
+        matrix[i] = [];
+        for (let j = 0; j < cols; j++) {
+          matrix[i][j] = Math.floor(Math.random() * 50) + 1;
+        }
+      }
+    }
+    displayMatrix(matrix, matrixContainer);
+    goToTraversalBtn.classList.remove("hidden");
+    resetButton.classList.remove("hidden");
+  });
+
+  resetButton.addEventListener("click", () => {
+    location.reload();
+  });
+
+  goToTraversalBtn.addEventListener("click", () => {
+    creationStep.style.display = "none";
+    traversalStep.style.display = "block";
+    displayMatrix(matrix, traversalMatrixContainer);
+  });
+
+  traverseBtn.addEventListener("click", () => {
+    let r = parseInt(traverseRow.value);
+    let c = parseInt(traverseCol.value);
+    clearHighlights(traversalMatrixContainer);
+    if (isNaN(r) || isNaN(c) || r < 0 || r >= rows || c < 0 || c >= cols) {
+      traversalExplanation.textContent = "Invalid indices.";
+      return;
+    }
+    traversalExplanation.textContent = `Value at [${r}][${c}] is ${matrix[r][c]}.`;
+    highlightCell(traversalMatrixContainer, r, c);
+    traversalNextBtn.classList.remove("hidden");
+  });
+
+  traversalNextBtn.addEventListener("click", () => {
+    traversalStep.style.display = "none";
+    manipulationStep.style.display = "block";
+    displayMatrix(matrix, manipulationMatrixContainer);
+  });
+
+  manipulateBtn.addEventListener("click", () => {
+    let r = parseInt(manipulateRow.value);
+    let c = parseInt(manipulateCol.value);
+    let val = parseInt(newValue.value);
+    clearHighlights(manipulationMatrixContainer);
+    if (isNaN(r) || isNaN(c) || isNaN(val) || r < 0 || r >= rows || c < 0 || c >= cols) {
+      manipulationExplanation.textContent = "Invalid input.";
+      return;
+    }
+    matrix[r][c] = val;
+    manipulationExplanation.textContent = `Matrix updated at [${r}][${c}].`;
+    displayMatrix(matrix, manipulationMatrixContainer);
+    highlightCell(manipulationMatrixContainer, r, c);
+  });
+
+  manipulationResetBtn.addEventListener("click", () => {
+    location.reload();
+  });
+
+  function displayMatrix(matrixData, container) {
+    container.innerHTML = "";
+    container.style.gridTemplateColumns = `repeat(${cols}, 50px)`;
+    container.className = "matrix-grid";
+    matrixData.forEach((row, rIdx) => {
+      row.forEach((val, cIdx) => {
+        let cell = document.createElement("div");
+        cell.className = "matrix-cell";
+        cell.textContent = val;
+        cell.dataset.row = rIdx;
+        cell.dataset.col = cIdx;
+        container.appendChild(cell);
+      });
+    });
+  }
+
+  function highlightCell(container, r, c) {
+    let cells = container.querySelectorAll(".matrix-cell");
+    cells.forEach(cell => {
+      if (parseInt(cell.dataset.row) === r && parseInt(cell.dataset.col) === c) {
+        cell.classList.add("highlight");
+      }
+    });
+  }
+
+  function clearHighlights(container) {
+    container.querySelectorAll(".matrix-cell").forEach(cell => {
+      cell.classList.remove("highlight");
+    });
+  }
+</script>
+
+
+
 
 
 
