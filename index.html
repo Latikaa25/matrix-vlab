@@ -13,7 +13,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/harmonic16-dark.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-  <script src="practiceScript.js"></script>
+  
   <link rel="stylesheet" href="practiceStyles.css" />
 
 </head>
@@ -306,20 +306,80 @@ This virtual setup ensures accessible, self-paced learning, especially for those
         </div>
       </div>
 
-      <!-- Practice -->
-      <div class="container" id="practice">
-        <div class="title">Practice</div>
-        <div class="content">
-          <p>Enter number of rows: <input type="number" id="row" /></p>
-          <p>Enter number of columns: <input type="number" id="column" /></p>
-          <p>Enter elements (comma-separated): <input type="text" id="values" /></p>
-          <div class="button-practice">
-            <button type="button"  style="text-align: center" onclick="display()">ENTER</button>
-            <button type="button" id="resetButton" class="hidden" onclick="resetMatrix()">RESET</button>
-          </div>
-          <div id="matrixContainer"></div>
-        </div>
+<!-- Practice -->
+<div class="container" id="practice">
+
+  <!-- Step 0: Introduction -->
+  <div id="matrixSteps" class="matrix-steps">
+    <h2 class="step-title">Matrix Learning Journey</h2>
+    <p id="stepExplanation">
+      Welcome! In this lab, we will learn matrices step by step:
+      <br> 1. Creation → 2. Traversal → 3. Manipulation
+    </p>
+    <button id="stepNextBtn">Next</button>
+  </div>
+
+  <!-- Step 1: Matrix Creation (hidden initially) -->
+  <div id="creationStep" style="display:none;">
+    <div class="title">Step 1: Creating Matrix</div>  
+    <div class="content">
+      <p>Enter number of rows: <input type="number" id="row" /></p>
+      <p>Enter number of columns: <input type="number" id="column" /></p>
+
+      <!-- Choose input method -->
+      <div class="switch-container">
+        <button type="button" id="manualBtn">Fill Manually</button>
+        <button type="button" id="randomBtn">Random Fill</button>
       </div>
+
+      <p id="elementsInput" style="display:none;">
+        Enter elements (comma-separated): 
+        <input type="text" id="values">
+      </p>
+
+      <div class="button-practice">
+        <button type="button" id="enterBtn" style="text-align: center" onclick="display()">ENTER</button>
+        <button type="button" id="resetButton" class="hidden" onclick="resetMatrix()">RESET</button>
+      </div>
+
+      <div id="matrixContainer"></div>
+      <button id="goToTraversalBtn" class="hidden">Go to Traversal →</button>
+
+    </div>
+  </div>
+
+    <!-- Step 2: Matrix Traversal (hidden initially) -->
+  <div id="traversalStep" style="display:none;">
+    <div class="title">Step 2: Traversing Matrix</div>
+    <div class="content">
+      <p>
+        Traversal means visiting each element of the matrix in a systematic way.
+        You can traverse <b>row-wise</b> (left to right, row by row) or
+        <b>column-wise</b> (top to bottom, column by column).
+      </p>
+
+      <!-- Traversal mode selector -->
+      <div class="switch-container">
+        <button type="button" id="rowWiseBtn">Row-wise</button>
+        <button type="button" id="colWiseBtn">Column-wise</button>
+      </div>
+
+      <!-- Matrix grid will be reused here -->
+      <div id="traversalMatrixContainer"></div>
+
+      <!-- Explanation + step button -->
+      <div id="traversalExplanation" class="explanation">
+        Select a traversal method to begin.
+      </div>
+      <div class="button-practice">
+        <button type="button" id="traversalNextBtn" class="hidden">NEXT</button>
+        <button type="button" id="traversalResetBtn" class="hidden">RESET</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 
 
 
@@ -414,6 +474,8 @@ This virtual setup ensures accessible, self-paced learning, especially for those
     }
   </script>
   <script src="script.js"></script>
+  <script src="practiceScript.js"></script>
+
 </body>
 
 </html>

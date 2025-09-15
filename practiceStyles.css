@@ -84,3 +84,97 @@ button:hover {
   margin-top: 10px;
 }
 
+.switch-container label {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #005256;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.switch-container button {
+    margin: 5px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.switch-container button:hover {
+    background-color: darkcyan;
+}
+
+.matrix-steps{
+  text-align: center;
+  padding: 5px;
+}
+.matrix-steps .step-title {
+  font-size: 25px;
+  font-weight: bold;
+  color: #1f2937; /* dark gray */
+  margin-bottom: 12px;
+}
+
+#stepExplanation {
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: #374151; /* neutral gray */
+  line-height: 1.6;
+}
+
+#stepNextBtn {
+  padding: 10px 20px;
+  font-size: 19px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #16a34a; /* green theme */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#stepNextBtn:hover {
+  background-color: #15803d; /* darker green */
+}
+
+
+/* put in practiceStyles.css (or styles.css) */
+.hidden { display: none !important; }
+
+/* Traversal step styles */
+#traversalMatrixContainer {
+  margin: 20px auto;
+  text-align: center;
+}
+
+#traversalExplanation {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1d4ed8;
+  text-align: center;
+}
+
+#traversalStep .switch-container button {
+  margin: 5px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: teal;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#traversalStep .switch-container button:hover {
+  background-color: darkcyan;
+}
+
