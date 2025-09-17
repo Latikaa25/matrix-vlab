@@ -181,57 +181,61 @@ This virtual setup ensures accessible, self-paced learning, especially for those
 
       <!-- Procedure -->
       <div class="container" id="procedure">
-        <div class="title">Procedure</div>
-        <div class="content">
-          <p><strong>Define the Function:</strong></p>
-          <ul style="list-style-type:disc">
-            <li>Name the function matrix(m, n, elements), where:</li>
-            <ul style="list-style-type:square">
-              <li><code>m</code> is the number of rows</li>
-              <li><code>n</code> is the number of columns</li>
-              <li><code>elements</code> is an array containing the values to fill the matrix</li>
-            </ul>
-            </li>
-          </ul>
+  <div class="title">Procedure</div>
+  <div class="content">
+
+    <p><strong>Step 1 – Create the Matrix:</strong></p>
+    <ul style="list-style-type:disc">
+      <li>Name the function <code>create_matrix(m, n, use_random)</code>, where:</li>
+      <ul style="list-style-type:square">
+        <li><code>m</code> is the number of rows</li>
+        <li><code>n</code> is the number of columns</li>
+        <li><code>use_random</code> is a boolean indicating whether to fill with random values</li>
+      </ul>
+      <li>If <code>use_random</code> is <code>True</code>, fill the matrix with random values from 1 to 50</li>
+      <li>If <code>use_random</code> is <code>False</code>, ask the user to enter <code>m × n</code> values one by one</li>
+      <li>Return the created matrix</li>
+    </ul>
+
+    <p><strong>Step 2 – Traverse the Matrix:</strong></p>
+    <ul style="list-style-type:disc">
+      <li>Name the function <code>traverse_matrix(matrix, r, c)</code>, where:</li>
+      <ul style="list-style-type:square">
+        <li><code>matrix</code> is the matrix to traverse</li>
+        <li><code>r</code> is the row index</li>
+        <li><code>c</code> is the column index</li>
+      </ul>
+      <li>Check if the index is valid by comparing <code>r</code> and <code>c</code> with matrix dimensions</li>
+      <li>If valid, print the value at <code>matrix[r][c]</code></li>
+      <li>If invalid, print <code>"Invalid index!"</code></li>
+    </ul>
+
+    <p><strong>Step 3 – Manipulate the Matrix:</strong></p>
+    <ul style="list-style-type:disc">
+      <li>Name the function <code>manipulate_matrix(matrix, r, c, new_value)</code>, where:</li>
+      <ul style="list-style-type:square">
+        <li><code>matrix</code> is the matrix to manipulate</li>
+        <li><code>r</code> is the row index</li>
+        <li><code>c</code> is the column index</li>
+        <li><code>new_value</code> is the new value to assign</li>
+      </ul>
+      <li>Check if the index is valid</li>
+      <li>If valid, update <code>matrix[r][c]</code> with <code>new_value</code> and print a confirmation message</li>
+      <li>If invalid, print <code>"Invalid index!"</code></li>
+    </ul>
+
+    <p><strong>Final Output:</strong></p>
+    <ul style="list-style-type:disc">
+      <li>First, display the entire matrix after creation</li>
+      <li>Then, traverse and display the value at the specified index</li>
+      <li>Next, manipulate the matrix and show the updated matrix</li>
+    </ul>
+
+  </div>
+</div>
 
 
 
-
-          <p><strong>Check for Sufficient Elements:</strong></p>
-          <ul style="list-style-type:disc">
-            <li>Compare the length of <code>elements</code> with <code>m × n</code></li>
-            <li>If <code>elements</code> has fewer than <code>m × n</code> values, print:
-              <code>"insufficient elements to populate the matrix"</code> and return <code>null</code>
-            </li>
-          </ul>
-
-          <p><strong>Initialize the Matrix:</strong></p>
-          <ul style="list-style-type:disc">
-            <li>Create an empty array <code>M</code> to store the final matrix</li>
-            <li>Declare a variable <code>index = 0</code> to track the position in <code>elements</code></li>
-          </ul>
-
-          <p><strong>Populate the Matrix Row-Wise:</strong></p>
-          <ul style="list-style-type:disc">
-            <li>Loop through <code>m</code> rows:
-              <ul style="list-style-type:square">
-                <li>Create an empty array <code>row</code></li>
-                <li>Loop through <code>n</code> columns:
-                  <ul style="list-style-type:circle">
-                    <li>Add <code>elements[index]</code> to <code>row</code></li>
-                    <li>Increment <code>index</code></li>
-                  </ul>
-                </li>
-                <li>Append the completed <code>row</code> to <code>M</code></li>
-              </ul>
-            </li>
-          </ul>
-          <p><strong>Return the Matrix:</strong></p>
-          <ul style="list-style-type:disc">
-            <li>After the loops complete, return <code>M</code>, which now holds the <code>m × n</code> matrix</li>
-          </ul>
-        </div>
-      </div>
 
 
       <!-- Code -->
